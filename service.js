@@ -1,15 +1,11 @@
 var app = angular.module('userProfiles');
 
-app.service('mainService', function($http , $q)) {
+app.service('mainService', function($http) {
 
   this.getUsers = function() {
-     var deferred = $q.defer();
-    $http({
+    return $http({
         method: 'GET',
-        url: 'http://reqr.es/api/users?page=1'
-    }).then(function(response) {
-      deferred.resolve(response)
+        url: 'http://swapi.co/api/people/' 
     })
-    return deferred.promise;
-}
+    }
 });
